@@ -1,0 +1,8 @@
+ec\edu\espoch\analisispendiente\modelo\implementation\FuncionImpl.class
+ec\edu\espoch\analisispendiente\controller\usecase\ControladorFuncion.class
+ec\edu\espoch\analisispendiente\controller\interfaces\SecondaryController.class
+module-info.class
+ec\edu\espoch\analisispendiente\controller\interfaces\PrimaryController.class
+ec\edu\espoch\analisispendiente\modelo\interfaces\IFuncion.class
+ec\edu\espoch\analisispendiente\modelo\objetos\Funcion.class
+ec\edu\espoch\analisispendiente\App.class

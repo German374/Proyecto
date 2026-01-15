@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="12.0"
+      xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ec.edu.espoch.analisispendiente.controller.interfaces.PrimaryController">
+
+    <children>
+        <Label text="ANÁLISIS DE LA FUNCIÓN"/>
+
+        <ComboBox fx:id="cbTipoFuncion" promptText="Seleccione el tipo de función"/>
+
+        <TextField fx:id="txtA" promptText="Ingrese a"/>
+        <TextField fx:id="txtB" promptText="Ingrese b"/>
+        <TextField fx:id="txtC" promptText="Ingrese c"/>
+
+        <TextArea fx:id="txtAnalisis"
+                  promptText="Aquí se mostrará el análisis"
+                  editable="false"
+                  wrapText="true"/>
+
+        <Button text="Analizar" onAction="#analizar"/>
+        <Button text="Ir a Resultado" onAction="#irSegundaVista"/>
+    </children>
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+</VBox>
+

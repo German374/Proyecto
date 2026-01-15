@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+
+<VBox alignment="CENTER" spacing="12.0"
+      xmlns="http://javafx.com/javafx/8.0.171"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="ec.edu.espoch.analisispendiente.controller.interfaces.SecondaryController">
+
+    <children>
+        <Label text="RESULTADO DEL CÁLCULO"/>
+
+        <TextArea fx:id="txtResultado"
+                  editable="false"
+                  wrapText="true"/>
+
+        <PasswordField fx:id="txtClave" promptText="Ingrese la clave para limpiar"/>
+
+        <Button text="Limpiar" onAction="#limpiar"/>
+    </children>
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+</VBox>
