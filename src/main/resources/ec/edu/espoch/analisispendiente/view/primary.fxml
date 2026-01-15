@@ -12,7 +12,7 @@
     <children>
         <Label text="ANÁLISIS DE LA FUNCIÓN"/>
 
-        <ComboBox fx:id="cbTipoFuncion" promptText="Seleccione el tipo de función"/>
+        <ComboBox fx:id="cbTipoFuncion" promptText="SELECCIONAR FUNCIÓN"/>
 
         <TextField fx:id="txtA" promptText="Ingrese a"/>
         <TextField fx:id="txtB" promptText="Ingrese b"/>
@@ -24,6 +24,7 @@
                   wrapText="true"/>
 
         <Button text="Analizar" onAction="#analizar"/>
+        <Button text="Limpiar" onAction="#limpiar"/>
         <Button text="Ir a Resultado" onAction="#irSegundaVista"/>
     </children>
 

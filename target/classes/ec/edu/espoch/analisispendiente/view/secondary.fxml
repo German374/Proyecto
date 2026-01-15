@@ -19,9 +19,11 @@
         <PasswordField fx:id="txtClave" promptText="Ingrese la clave para limpiar"/>
 
         <Button text="Limpiar" onAction="#limpiar"/>
+        <Button text="Volver" onAction="#volver"/>
     </children>
 
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 </VBox>
+

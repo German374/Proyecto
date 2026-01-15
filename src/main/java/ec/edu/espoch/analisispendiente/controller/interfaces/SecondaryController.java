@@ -5,8 +5,10 @@ import ec.edu.espoch.analisispendiente.modelo.objetos.Funcion;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 
-public class SecondaryController {
+public class SecondaryController
+{
     @FXML
     private TextArea txtResultado;
 
@@ -21,12 +23,22 @@ public class SecondaryController {
         this.funcion = funcion;
         txtResultado.setText(controlador.obtenerCalculo(funcion));
     }
-
+//
     @FXML
-    private void limpiar(){
-        if (txtClave.getText().equals("1234")){
+    private void limpiar()
+    {
+        if (txtClave.getText().equals("1234"))
+        {
             txtResultado.clear();
             txtClave.clear();
         }
     }
+
+    @FXML
+    private void volver()
+    {
+        Stage stage = (Stage) txtResultado.getScene().getWindow();
+        stage.close();
+    }
 }
+
