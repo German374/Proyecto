@@ -31,8 +31,7 @@ public class PrimaryController
     private Funcion funcionActual;
 
     @FXML
-    public void initialize()
-    {
+    public void initialize(){
         cbTipoFuncion.getItems().addAll("Función Lineal", "Función Cuadrática");
 
         // al iniciar no se permitir ingresar hasta seleccionar
@@ -68,7 +67,7 @@ public class PrimaryController
         }
         else
         {
-            // Para Cuadrática: a, b y c habilitados
+            // Para Cuadrática a, b y c habilitados
             txtC.setDisable(false);
         }
     }
@@ -91,15 +90,11 @@ public class PrimaryController
         funcionActual = controlador.crearFuncion(tipo, a, b, c);
         txtAnalisis.setText(controlador.obtenerAnalisis(funcionActual));
     }
-//cambiar a funcionImpl
+    
     @FXML
     private void limpiar(){
-        txtA.clear();
-        txtB.clear();
-        txtC.clear();
-        txtAnalisis.clear();
+        controlador.limpiarFormulario(txtA, txtB, txtC, txtAnalisis);
         funcionActual = null;
-
         cbTipoFuncion.getSelectionModel().clearSelection();
         deshabilitarCampos();
     }

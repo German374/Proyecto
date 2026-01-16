@@ -23,15 +23,11 @@ public class SecondaryController
         this.funcion = funcion;
         txtResultado.setText(controlador.obtenerCalculo(funcion));
     }
-//
+
     @FXML
     private void limpiar()
     {
-        if (txtClave.getText().equals("1234"))
-        {
-            txtResultado.clear();
-            txtClave.clear();
-        }
+        controlador.limpiarResultado(txtClave, txtResultado);
     }
 
     @FXML
@@ -41,4 +37,5 @@ public class SecondaryController
         stage.close();
     }
 }
+
 

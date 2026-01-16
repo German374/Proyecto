@@ -7,12 +7,15 @@
 <VBox alignment="CENTER" spacing="12.0"
       xmlns="http://javafx.com/javafx/8.0.171"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="ec.edu.espoch.analisispendiente.controller.interfaces.PrimaryController">
+      fx:controller="ec.edu.espoch.analisispendiente.controller.interfaces.PrimaryController"
+      stylesheets="@estilos.css">
 
     <children>
-        <Label text="ANÁLISIS DE LA FUNCIÓN"/>
 
-        <ComboBox fx:id="cbTipoFuncion" promptText="SELECCIONAR FUNCIÓN"/>
+        <Label text="ANÁLISIS DE LA FUNCIÓN" styleClass="titulo"/>
+
+        <ComboBox fx:id="cbTipoFuncion"
+                  promptText="SELECCIONAR FUNCIÓN"/>
 
         <TextField fx:id="txtA" promptText="Ingrese a"/>
         <TextField fx:id="txtB" promptText="Ingrese b"/>
@@ -23,13 +26,24 @@
                   editable="false"
                   wrapText="true"/>
 
-        <Button text="Analizar" onAction="#analizar"/>
-        <Button text="Limpiar" onAction="#limpiar"/>
-        <Button text="Ir a Resultado" onAction="#irSegundaVista"/>
+        <Button text="Analizar"
+                styleClass="button primario"
+                onAction="#analizar"/>
+
+        <Button text="Limpiar"
+                styleClass="button secundario"
+                onAction="#limpiar"/>
+
+        <Button text="Ir a Resultado"
+                styleClass="button primario"
+                onAction="#irSegundaVista"/>
+
     </children>
 
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
+
 </VBox>
+
 

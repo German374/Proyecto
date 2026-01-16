@@ -7,23 +7,34 @@
 <VBox alignment="CENTER" spacing="12.0"
       xmlns="http://javafx.com/javafx/8.0.171"
       xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="ec.edu.espoch.analisispendiente.controller.interfaces.SecondaryController">
+      fx:controller="ec.edu.espoch.analisispendiente.controller.interfaces.SecondaryController"
+      stylesheets="@estilos.css">
 
     <children>
-        <Label text="RESULTADO DEL CÁLCULO"/>
+
+        <Label text="RESULTADO DEL CÁLCULO" styleClass="titulo"/>
 
         <TextArea fx:id="txtResultado"
                   editable="false"
                   wrapText="true"/>
 
-        <PasswordField fx:id="txtClave" promptText="Ingrese la clave para limpiar"/>
+        <PasswordField fx:id="txtClave"
+                       promptText="Ingrese la clave para limpiar"/>
 
-        <Button text="Limpiar" onAction="#limpiar"/>
-        <Button text="Volver" onAction="#volver"/>
+        <Button text="Limpiar"
+                styleClass="button secundario"
+                onAction="#limpiar"/>
+
+        <Button text="Volver"
+                styleClass="button primario"
+                onAction="#volver"/>
+
     </children>
 
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
+
 </VBox>
+
 
