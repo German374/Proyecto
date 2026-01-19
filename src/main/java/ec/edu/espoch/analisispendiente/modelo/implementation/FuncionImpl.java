@@ -77,11 +77,16 @@ public class FuncionImpl implements IFuncion
             sb.append("Función Lineal: f(x) = ").append(a).append("x + ").append(b).append("\n");
             sb.append("Primera derivada: f'(x) = ").append(pendiente).append("\n");
             sb.append("Segunda derivada: f''(x) = 0\n");
+            sb.append("Pendiente indica que la función es ");
+            sb.append(pendiente > 0 ? "creciente": pendiente < 0 ? "decreciente": "constante").append("\n");
+
         }
         else{
             double derivada1 = b;
             double derivada2 = 2 * a;
             double puntoCritico = -b / (2 * a);
+            String tipoExtremo = derivada2 > 0 ? "mínimo" : "máximo";
+
             
             sb.append("Función Cuadrática: f(x) = ").append(a).append("x² + ").append(b).append("x + ").append(c).append("\n");
             sb.append("Primera derivada: f'(x) = ").append(2 * a).append("x + ").append(derivada1).append("\n");
@@ -89,6 +94,8 @@ public class FuncionImpl implements IFuncion
             //redonde del valor que se va a mostrar en pantalla
             String puntoCriticoFormateado = String.format("%.2f", puntoCritico);
             sb.append("Punto crítico: x = ").append(puntoCriticoFormateado).append("\n");
+            sb.append("La función tiene un ").append(tipoExtremo).append(" en el punto crítico.\n");
+            sb.append("Cuando la pendiente en x = 0, la pendiente en y es ").append(derivada1).append("\n");
         }
 
         return sb.toString();
