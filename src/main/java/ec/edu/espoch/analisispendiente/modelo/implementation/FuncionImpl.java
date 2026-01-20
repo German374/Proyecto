@@ -16,6 +16,11 @@ public class FuncionImpl implements IFuncion
     @Override
     public String analizar(Funcion funcion)
     {
+        // Validacion defensiva: evita que se quede sin mensaje
+        if (funcion == null){
+            return "Primero es necesario ingresar los valores en los campos. Luego presiona 'Analizar' para continuar.";
+        }
+
         double a = funcion.getA();
         double b = funcion.getB();
         double c = funcion.getC();
@@ -31,9 +36,15 @@ public class FuncionImpl implements IFuncion
         else{
             double m = -a / b;
 
-            if (m > 0) tipoRuta = "ascendente";
-            else if (m < 0) tipoRuta = "descendente";
-            else tipoRuta = "plana";
+            if (m > 0){
+                tipoRuta = "ascendente";
+            }
+            else if (m < 0){
+                tipoRuta = "descendente";
+            }
+            else{
+                tipoRuta = "plana";
+            }
 
             if (Math.abs(m) < 0.3){
                 inclinacion = "suave";
@@ -47,9 +58,10 @@ public class FuncionImpl implements IFuncion
                 inclinacion = "empinada";
                 esfuerzo = "alto";
             }
-            // redondeo del valor que se va a mostrar 
+
+            // redondeo del valor que se va a mostrar
             String mFormateado = String.format("%.2f", m);
-            
+
             analisis = "Con los valores ingresados (a = " + a + ", b = " + b + ", c = " + c +
                     "), se obtiene un analisis para interpretar una ruta que es de " + mFormateado +
                     ", lo que indica un trayecto " + tipoRuta +
@@ -64,10 +76,20 @@ public class FuncionImpl implements IFuncion
     @Override
     public String calcular(Funcion funcion)
     {
+        // Validacion defensiva: evita errores si no llega funcion
+        if (funcion == null){
+            return "Debes ingresar todos los campos para poder analizar la funcion. Completa los valores y vuelve a intentar.";
+        }
+
         double a = funcion.getA();
         double b = funcion.getB();
         double c = funcion.getC();
         String tipoFuncion = funcion.getTipoFuncion();
+
+        // Validacion defensiva del tipo de funcion
+        if (tipoFuncion == null || tipoFuncion.trim().isEmpty()){
+            return "Primero selecciona el tipo de funcion y luego ingresa los valores para poder analizar.";
+        }
 
         StringBuilder sb = new StringBuilder();
 
@@ -78,20 +100,25 @@ public class FuncionImpl implements IFuncion
             sb.append("Primera derivada: f'(x) = ").append(pendiente).append("\n");
             sb.append("Segunda derivada: f''(x) = 0\n");
             sb.append("Pendiente indica que la función es ");
-            sb.append(pendiente > 0 ? "creciente": pendiente < 0 ? "decreciente": "constante").append("\n");
-
+            sb.append(pendiente > 0 ? "creciente" : pendiente < 0 ? "decreciente" : "constante").append("\n");
         }
-        else{
+        else
+        {
+            // Evita division por cero en cuadratica
+            if (a == 0){
+                return "Para analizar la funcion cuadratica, el valor de a no puede ser 0. Ingresa un valor diferente y vuelve a intentar.";
+            }
+
             double derivada1 = b;
             double derivada2 = 2 * a;
             double puntoCritico = -b / (2 * a);
             String tipoExtremo = derivada2 > 0 ? "mínimo" : "máximo";
 
-            
             sb.append("Función Cuadrática: f(x) = ").append(a).append("x² + ").append(b).append("x + ").append(c).append("\n");
             sb.append("Primera derivada: f'(x) = ").append(2 * a).append("x + ").append(derivada1).append("\n");
             sb.append("Segunda derivada: f''(x) = ").append(derivada2).append("\n");
-            //redonde del valor que se va a mostrar en pantalla
+
+            // redondeo del valor que se va a mostrar
             String puntoCriticoFormateado = String.format("%.2f", puntoCritico);
             sb.append("Punto crítico: x = ").append(puntoCriticoFormateado).append("\n");
             sb.append("La función tiene un ").append(tipoExtremo).append(" en el punto crítico.\n");
@@ -101,7 +128,7 @@ public class FuncionImpl implements IFuncion
         return sb.toString();
     }
 
-    // LIMPIAR PRIMERA VISTA
+    // Limpira primera vista
     @Override
     public void limpiarFormulario(TextField txtA, TextField txtB, TextField txtC, TextArea txtAnalisis)
     {
@@ -111,9 +138,10 @@ public class FuncionImpl implements IFuncion
         txtAnalisis.clear();
     }
 
-    // limpiar el resultado con contraseña
+    // Limpiar resultado con contraseña
     @Override
-    public void limpiarResultado(PasswordField txtClave, TextArea txtResultado){
+    public void limpiarResultado(PasswordField txtClave, TextArea txtResultado)
+    {
         String clave = txtClave.getText().trim();
 
         if (clave.isEmpty()){
@@ -135,7 +163,4 @@ public class FuncionImpl implements IFuncion
             alerta.showAndWait();
         }
     }
-
 }
-
-
